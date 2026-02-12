@@ -1,3 +1,4 @@
+flask
 ultralytics
 easyocr
 opencv-python-headless
