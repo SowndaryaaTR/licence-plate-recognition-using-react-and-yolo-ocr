@@ -12,8 +12,9 @@ import os
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}}, methods=["GET", "POST", "OPTIONS"])
 
-# --- YOLO and OCR Setup ---
-MODEL_PATH = "model/license_plate_detector.pt"
+BASE_DIR = os.path.dirname(__file__)  # directory of app.py
+MODEL_PATH = os.path.join(BASE_DIR, "model", "license_plate_detector.pt")
+
 model = YOLO(MODEL_PATH, task="detect")
 reader = easyocr.Reader(['en'], gpu=False)
 
